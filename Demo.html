@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Todo.</title>
+        <link rel="stylesheet" type="text/css" href="Demo.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+ </head>
+ <body>
+     <script type="text/javascript">
+         function showremove(){
+             count=$('li').length;
+             if(count>0){
+                 $('#remove').show();
+             }
+             else
+             $('#remove').hide();
+             }
+         $(document).ready(function(){
+             $('#remove').hide()
+             $('#add').on("click",function(){
+                 var value = $('input').val();
+                 if(value !==''){
+                     var elem = $("<li></li>").text(value);
+                     var btn = $("<button class='rem'>X</button>");
+                     $(elem).append(btn);
+                     $('#myList').append(elem);
+                     $('input').val("");
+                     showremove();
+                     $('.rem').on("click",function(){
+                         $(this).parent().remove();
+                         showremove();
+                     });
+                 }
+                 $('#remove').on("click",function(){
+                     $('#myList').empty();
+                 });
+             });
+         });
+         </script>
+         <div class="">
+        <h1><strong>Todo.</strong></h1>
+ 
+        <input type="text" placeholder="Do Laundry" />
+        <button id="add">Add To Do</button>
+        
+        <ul id="myList">
+            <input type="checkbox" class ="myList">
+        </ul>
+        <li id="todos">
+            <!-- <input type="checkbox" class ="myList"> -->
+            <i class=""></i>
+
+
+
+
+
+
+           <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+            <ol>
+                <input type="checkbox"class="completeitem" />
+           </ol>-->
+        </li>
+        </div>
+        <!--<i class="material-icons">delete</i>-->
+ </body>
+</html>
